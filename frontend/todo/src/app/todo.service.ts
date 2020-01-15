@@ -37,4 +37,10 @@ export class TodoService {
     const url = `${this.baseUrl}/api/todos/${id}/`;
     return this.httpClient.delete<Todo>(url, this.httpOptions);
   }
+
+  updateTodo(todo: Todo): Observable<Todo> {
+    const url = `${this.baseUrl}/api/todos/${todo.id}/`;
+    return this.httpClient.put<Todo>(url, todo, this.httpOptions);
+  }
+
 }
