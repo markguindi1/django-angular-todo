@@ -1,17 +1,26 @@
-<h1>{{title}}</h1>
+<div class="center">
+  <h1>{{title}}</h1>
 
-<input #newTodoInput id="new-todo-input" 
-  (keyup.enter)="addTodo(newTodoInput.value); newTodoInput.value = null" />
+  <input #newTodoInput id="new-todo-input" class="todo-input"
+    (keyup.enter)="addTodo(newTodoInput.value); newTodoInput.value = null" />
 
-<ul>
-  <li *ngFor="let todo of todos" [class.todo-done]="todo.done">
-    {{todo.text}}
-    <input
-      type="checkbox"
-      [checked]="todo.done"
-      (change)="todo.done = !todo.done"/>
-      <button (click)="deleteTodo(todo)">X</button>
-  </li>
-</ul>
+  <table class="center table table-sm table-striped table-bordered">
+    <tbody>
+      <tr *ngFor="let todo of todos" [class.todo-done]="todo.done">
 
-<button (click)="clearDone()">Clear Done</button>
+        <td class="todo-text">{{todo.text}}</td>
+        <td>
+          <input
+            type="checkbox"
+            [checked]="todo.done"
+            (change)="todo.done = !todo.done"/>
+        </td>
+        <td>
+          <button type="button" class="btn btn-light" (click)="deleteTodo(todo)">X</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <button type="button" class="btn btn-danger" (click)="clearDone()">Clear Done</button>
+</div>
