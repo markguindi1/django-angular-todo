@@ -1,24 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { TodoService } from './todo.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'Todo App';
-  todos = [
-    {
-      text: 'Learn Angular',
-      done: false,
-      id: 0
-    }
-  ];
-
+  todos = [];
   newTodoId = 1;
 
-  ngOnInit(): void {
+  constructor(private todoService: TodoService) {}
 
+  ngOnInit(): void {
+    this.fetchTodos();
+  }
+
+  fetchTodos(): void {
+    this.todoService.getTodos().subscribe(todos => this.todos = todos);
   }
 
   addTodo(newTodoText: string): void {
