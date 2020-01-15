@@ -2,7 +2,7 @@
 
 A basic project I'm working on to learn the basics of the Django Rest Framework, Angular, and how to integrate them to build a basic fully-functional web app. 
 
-### Todo Schema: ###
+## Todo Schema: ##
 
 ```
 Todo {
@@ -12,9 +12,10 @@ Todo {
 }
 ```
 
-### Api Endpoints: ###
-`GET /api/todos` Get list of all Todos
-Response
+## Api Endpoints: ##
+### `GET /api/todos` Get list of all Todos ###
+
+Response:
 ```
 [
     {
@@ -26,15 +27,16 @@ Response
 ]
 ```
 
-`POST /api/todos` Create Todo
-Request
+### `POST /api/todos` Create Todo ###
+
+Request:
 ```
 {
 	"text": "string", 
 	"done": boolean
 }
 ```
-Response
+Response:
 ```
 {
     "id": number,
@@ -43,8 +45,9 @@ Response
 }
 ```
 
-`GET /api/todos/<id>` Get Todo by ID
-Response
+### `GET /api/todos/<id>` Get Todo by ID ###
+
+Response:
 ```
 {
     "id": number,
@@ -53,15 +56,16 @@ Response
 }
 ```
 
-`PUT /api/todos/<id>` Update Todo by ID
-Request
+### `PUT /api/todos/<id>` Update Todo by ID ###
+
+Request:
 ```
 {
 	"text": "string", 
 	"done": boolean
 }
 ```
-Response
+Response:
 ```
 {
     "id": number,
@@ -70,5 +74,6 @@ Response
 }
 ```
 
-`DELETE /api/todos/<id>` Delete Todo by ID
+### `DELETE /api/todos/<id>` Delete Todo by ID ###
+
 (No Request or Response body)
