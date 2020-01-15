@@ -13,7 +13,7 @@
           <input
             type="checkbox"
             [checked]="todo.done"
-            (change)="todo.done = !todo.done"/>
+            (change)="updateTodoStatus(todo)"/>
         </td>
         <td>
           <button type="button" class="btn btn-light" (click)="deleteTodo(todo)">X</button>

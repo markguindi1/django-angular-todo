@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TodoService } from './todo.service';
+import { Todo } from './todo';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,7 @@ import { TodoService } from './todo.service';
 })
 export class AppComponent implements OnInit {
   title = 'Todo App';
-  todos = [];
+  todos: Todo[] = [];
 
   constructor(private todoService: TodoService) {}
 
@@ -35,6 +36,12 @@ export class AppComponent implements OnInit {
       return '';
     }
     return str.charAt(0).toUpperCase() + str.slice(1);
+  }
+
+  updateTodoStatus(todo: Todo): void {
+    todo.done = !todo.done;
+    // Update Todo in service
+    this.todoService.updateTodo(todo).subscribe();
   }
 
   deleteTodo(deletedTodo): void {
