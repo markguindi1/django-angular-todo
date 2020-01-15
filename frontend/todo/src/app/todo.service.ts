@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
+
 import { Todo } from './todo';
 
 @Injectable({
@@ -7,34 +9,32 @@ import { Todo } from './todo';
 })
 export class TodoService {
 
-  TODOS: Todo[] = [
-    {
-      text: 'Learn Angular',
-      done: false,
-      id: 0
-    }
-  ];
-  private newTodoId = 1;
+  private baseUrl = 'http://127.0.0.1:8000';
+  private httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+     })
+  };
 
-  constructor() { }
+  constructor(private httpClient: HttpClient) { }
 
   getTodos(): Observable<Todo[]> {
-    return of(this.TODOS);
+    const url = `${this.baseUrl}/api/todos/`;
+    return this.httpClient.get<Todo[]>(url);
+    // return of(this.TODOS);
   }
 
   addTodo(newTodoText: string): Observable<Todo> {
+    const url = `${this.baseUrl}/api/todos/`;
     const newTodo = {
       text: newTodoText,
       done: false,
-      id: this.newTodoId
     };
-    this.TODOS.push(newTodo);
-    this.newTodoId++;
-    return of(newTodo);
+    return this.httpClient.post<Todo>(url, newTodo, this.httpOptions);
   }
 
   deleteTodo(id: number): Observable<Todo> {
-    this.TODOS = this.TODOS.filter(todo => todo.id !== id);
-    return of(null);
+    const url = `${this.baseUrl}/api/todos/${id}/`;
+    return this.httpClient.delete<Todo>(url, this.httpOptions);
   }
 }
