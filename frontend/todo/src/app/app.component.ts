@@ -26,8 +26,6 @@ export class AppComponent implements OnInit {
     }
     // Call service to add Todo, and push in subscribe()
     this.todoService.addTodo(this.capitalize(newTodoText)).subscribe(todo => {
-      console.log(this.todoService.TODOS);
-      console.log(this.todos);
       this.todos.push(todo);
     });
   }
