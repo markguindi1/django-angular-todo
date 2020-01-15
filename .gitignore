@@ -228,3 +228,5 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+backend/todo/db.sqlite3
+backend/todo/todo/__pycache__/settings.cpython-36.pyc

@@ -1,0 +1,23 @@
+.center {
+     text-align: center;
+     margin: auto;
+}
+
+table.center {
+     width: 30%;
+     margin-top: 20px;
+     margin-bottom: 20px;
+}
+
+.todo-done {
+     text-decoration: line-through;
+}
+
+.todo-input {
+     width: 30%;
+}
+
+.todo-text {
+     text-align: left;
+}
+  
