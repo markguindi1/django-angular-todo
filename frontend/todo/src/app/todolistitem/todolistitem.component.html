@@ -1,0 +1,12 @@
+<td class="todo-text" [class.todo-done]="todo.done">
+    {{todo.text}}
+</td>
+<td>
+    <input
+        type="checkbox"
+        [checked]="todo.done"
+        (change)="updateTodoStatus(todo)"/>   
+</td>
+<td>
+    <button type="button" class="btn btn-light" (click)="deleteTodo(todo)">X</button>
+</td>
