@@ -6,18 +6,17 @@
 
   <table class="center table table-sm table-striped table-bordered">
     <tbody>
-      <tr *ngFor="let todo of todos" [class.todo-done]="todo.done">
-
-        <td class="todo-text">{{todo.text}}</td>
+      <tr appTodoistitem *ngFor="let todo of todos">
+        <td class="todo-text" [class.todo-done]="todo.done">
+          {{todo.text}}
+        </td>
         <td>
-          <input
-            type="checkbox"
-            [checked]="todo.done"
-            (change)="updateTodoStatus(todo)"/>
+          <input type="checkbox" [checked]="todo.done" (change)="updateTodoStatus(todo)" />
         </td>
         <td>
           <button type="button" class="btn btn-light" (click)="deleteTodo(todo)">X</button>
         </td>
+
       </tr>
     </tbody>
   </table>
