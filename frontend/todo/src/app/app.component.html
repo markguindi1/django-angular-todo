@@ -6,12 +6,15 @@
 
   <table class="center table table-sm table-striped table-bordered">
     <tbody>
-      <tr appTodoistitem *ngFor="let todo of todos">
+      <tr appTodoitem *ngFor="let todo of todos">
         <td class="todo-text" [class.todo-done]="todo.done">
-          {{todo.text}}
+          <input
+            [class.todo-done]="todo.done"
+            [(ngModel)]="todo.text"
+            (blur)="updateTodo(todo)" />
         </td>
         <td>
-          <input type="checkbox" [checked]="todo.done" (change)="updateTodoStatus(todo)" />
+          <input type="checkbox" [checked]="todo.done" (change)="updateTodoDoneStatus(todo)" />
         </td>
         <td>
           <button type="button" class="btn btn-light" (click)="deleteTodo(todo)">X</button>
