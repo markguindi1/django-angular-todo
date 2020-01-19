@@ -38,8 +38,12 @@ export class AppComponent implements OnInit {
     return str.charAt(0).toUpperCase() + str.slice(1);
   }
 
-  updateTodoStatus(todo: Todo): void {
+  updateTodoDoneStatus(todo: Todo): void {
     todo.done = !todo.done;
+    this.updateTodo(todo);
+  }
+
+  updateTodo(todo: Todo): void {
     // Update Todo in service
     this.todoService.updateTodo(todo).subscribe();
   }
