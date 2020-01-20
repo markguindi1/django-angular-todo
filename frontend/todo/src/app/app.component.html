@@ -2,6 +2,7 @@
   <h1>{{title}}</h1>
 
   <input #newTodoInput id="new-todo-input" class="todo-input"
+    placeholder="New Todo"
     (keyup.enter)="addTodo(newTodoInput.value); newTodoInput.value = null" />
 
   <table class="center table table-sm table-striped table-bordered">
@@ -9,6 +10,7 @@
       <tr appTodoitem *ngFor="let todo of todos">
         <td class="todo-text" [class.todo-done]="todo.done">
           <input
+            class="todo-text todo-text-input"
             [class.todo-done]="todo.done"
             [(ngModel)]="todo.text"
             (blur)="updateTodo(todo)" />
