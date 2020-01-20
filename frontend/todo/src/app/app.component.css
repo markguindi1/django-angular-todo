@@ -20,3 +20,9 @@ table.center {
 .todo-text {
      text-align: left;
 }
+
+.todo-text-input {
+     width: 100%;
+     background-color: transparent;
+     border: none;
+}
