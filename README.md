@@ -2,6 +2,25 @@
 
 A basic project I'm working on to learn the basics of the Django Rest Framework, Angular, and how to integrate them to build a basic fully-functional web app. 
 
+## Technologies ##
+* Python & Django
+* Angular
+
+## How to Run ##
+Frontend:
+```
+$ cd frontend/todo/
+$ npm install # Installing dependencies, done only once
+$ ng serve --open # Opens the UI in your browser at localhost:4200
+``` 
+Backend (in a separate terminal tab):
+```
+$ cd backend/todo/
+# Optionally create or switch into a Python virtual environment
+$ pip install -r requirements.txt # Installing dependencies, done only once
+$ python manage.py runserver
+```
+
 ## Todo Schema: ##
 
 ```
